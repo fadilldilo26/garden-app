@@ -1,0 +1,40 @@
+GARDEN APP - TASK SUBMISSION REPORT
+====================================
+Student ID: FA25090019005
+Date: 2026-09-20
+
+1. PROJECT OVERVIEW
+-------------------
+Created a public GitHub repository 'garden-app' containing a gardening advice 
+application. The app provides seasonal tips based on user input.
+
+2. IMPROVEMENTS IMPLEMENTED
+---------------------------
+Issue #1: Refactored get_season() function
+- Replaced hardcoded if/elif logic with a dictionary-based mapping.
+- Improved code readability and maintainability.
+
+Issue #2: Added Input Validation & User Prompts
+- Added error handling for invalid month inputs (non-integers, out of range).
+- Replaced hardcoded month value with interactive user input prompt.
+- Added try/except blocks to prevent crashes.
+
+3. GIT WORKFLOW FOLLOWED
+------------------------
+For each improvement, the following Issue & Pull Request workflow was used:
+1. Created a GitHub Issue to document the task.
+2. Created a local feature branch (e.g., feature/user-input).
+3. Implemented changes and committed with descriptive messages.
+4. Pushed branch to GitHub and opened a Pull Request.
+5. Reviewed changes and merged PR into main branch.
+6. Closed the associated Issue.
+
+4. FILES INCLUDED
+-----------------
+- garden_advice.py : Main application script (improved version).
+- garden_advice.js : JavaScript version of the app.
+- report.txt : This submission file.
+
+5. REPOSITORY LINK
+------------------
+https://github.com/fadlilldio26/garden-app
