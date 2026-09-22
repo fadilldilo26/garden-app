@@ -5,6 +5,7 @@ Provides gardening tips and advice based on the month and the season.
 
 Author: Faadhil Khan
 Student ID: FA25090019005
+Date: 2026-09-23
 """
 
 # CHANGELOG / TODO LIST
@@ -13,7 +14,7 @@ Student ID: FA25090019005
 # [2026-09-23] TODO: Add author information. (DONE)
 # [2026-09-23] TODO: Replace hardcoded month names with a data structure.
 # [2026-09-23] TODO: Refactor get_season() to use dictionary mapping.
-# [2026-09-23] TODO: Add input validation for month parameter.
+# [2026-09-23] TODO: Add input validation for month parameter. (DONE - See main function)
 
 # TODO: Replace these hardcoded month names with a proper data structure
 months = ["January", "February", "March", "April", "May", "June",
@@ -37,7 +38,6 @@ def get_gardening_advice(month):
     """
     Returns gardening advice based on the month.
     TODO: Expand this function to include more detailed advice per season.
-    TODO: Add input validation for the month parameter.
     """
     season = get_season(month)
     # TODO: Replace hardcoded advice strings with a structured data source
@@ -53,10 +53,30 @@ def get_gardening_advice(month):
         advice = "No specific advice available."
     return advice
 
-# TODO: Add a main function to organize the program flow
-month_number = 5 # TODO: Replace hardcoded value with user input
-season = get_season(month_number)
-advice = get_gardening_advice(month_number)
-print(f"Month: {months[month_number - 1]}")
-print(f"Season: {season}")
-print(f"Advice: {advice}")
+# --- NEW FEATURE: Input Validation & User Prompts (Fixes Issue #2) ---
+def main():
+    """Main function to run the Garden Advice App with error handling."""
+    try:
+        # Get user input instead of hardcoded value
+        user_input = input("Enter a month number (1-12): ")
+        month_number = int(user_input)
+        
+        # Validate range
+        if month_number < 1 or month_number > 12:
+            print("Error: Please enter a number between 1 and 12.")
+            return
+            
+        month_name = months[month_number - 1]
+        season = get_season(month_number)
+        advice = get_gardening_advice(month_number)
+        
+        print(f"\nMonth: {month_name}")
+        print(f"Season: {season}")
+        print(f"Advice: {advice}")
+        
+    except ValueError:
+        # Handle non-integer input (e.g., typing "abc")
+        print("Error: Invalid input. Please enter a valid integer.")
+
+if __name__ == "__main__":
+    main()
